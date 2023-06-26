@@ -21,6 +21,10 @@ function main(ctime) {
 
 }
 
+function isCollied(sarr) {
+    return false;
+}
+
 function gameEngine() {
 
 if(isCollied(snakeArr)) {
@@ -31,6 +35,18 @@ if(isCollied(snakeArr)) {
     snakeArr[{x:13, y:15}];
     musicSound.play();
     score=0;
+}
+
+if(snakeArr[0].y ===food.y && snakeArr[0].x === food.x) {
+    snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y});
+    let a = 2;
+    let b = 16;
+    food = {x: Math.round(a + (b - a)*Math.random()), y: Math.round(a + (b - a)*Math.random())}
+}
+
+for (let i = snakeArr.length-2; i >=0; i--) {
+    const element = array[i];
+    
 }
 
     board.innerHTML = "";
