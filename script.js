@@ -21,8 +21,17 @@ function main(ctime) {
 
 }
 
-function isCollied(sarr) {
-    return false;
+function isCollied(snake) {
+    for (let i = 1; i < snakeArr.length; i++) {
+        if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
+            return true;
+        }
+
+    }
+    if (snake[0].x >= 18 && snake[0].x <= 0 && snake[0].y >= 18 && snake[0].y <= 0) {
+        return true;
+    }
+
 }
 
 function gameEngine() {
@@ -47,7 +56,7 @@ function gameEngine() {
 
     for (let i = snakeArr.length - 2; i >= 0; i--) {
         const element = array[i];
-        snakeArr[i+1]={...snakeArr[i]}
+        snakeArr[i + 1] = { ...snakeArr[i] }
 
     }
     snakeArr[0].x += inputDir.x;
